@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Proyectos{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Proyectos</h2>
+        <div class="projects-grid">
+            {% for proyecto in proyectos %}
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="{{ proyecto.imagen_url }}" alt="{{ proyecto.titulo }}">
+                    <div class="project-overlay">
+                        <a href="/proyecto/{{ proyecto.id }}" class="btn-icon">🔍</a>
+                        <a href="{{ proyecto.github_url }}" target="_blank" class="btn-icon">💻</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>{{ proyecto.titulo }}</h3>
+                    <p>{{ proyecto.descripcion[:120] }}...</p>
+                    <div class="tech-stack">
+                        {% for tech in proyecto.tecnologias.split(', ') %}
+                        <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

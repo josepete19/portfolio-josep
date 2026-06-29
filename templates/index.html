@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Josep Rojas</h1>
+        <p>Source Code Reviewer · Desarrollador Full-Stack</p>
+        <p style="font-size: 1.1rem; color: #94a3b8; max-width: 600px; margin: 20px auto;">
+            4+ años certificando software para el sector del gaming. Especializado en auditoría de código y cumplimiento normativo ENAC.
+        </p>
+        <div>
+            <a href="/proyectos" class="btn btn-primary">Ver proyectos</a>
+            <a href="https://www.linkedin.com/in/josep-rojas-garos-7a8040220" target="_blank" class="btn btn-secondary">LinkedIn</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Proyectos destacados</h2>
+        <div class="projects-grid">
+            {% for proyecto in proyectos %}
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="{{ proyecto.imagen_url }}" alt="{{ proyecto.titulo }}">
+                    <div class="project-overlay">
+                        <a href="/proyecto/{{ proyecto.id }}" class="btn-icon">🔍</a>
+                        <a href="{{ proyecto.github_url }}" target="_blank" class="btn-icon">💻</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>{{ proyecto.titulo }}</h3>
+                    <p>{{ proyecto.descripcion[:120] }}...</p>
+                    <div class="tech-stack">
+                        {% for tech in proyecto.tecnologias.split(', ') %}
+                        <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: var(--bg-alt);">
+    <div class="container">
+        <h2 class="section-title">Últimos posts</h2>
+        <div class="posts-list">
+            {% for post in posts %}
+            <div class="post-item">
+                <h2><a href="/post/{{ post.id }}">{{ post.titulo }}</a></h2>
+                <p>{{ post.contenido[:160] }}...</p>
+                <div class="post-meta">{{ post.fecha_publicacion }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

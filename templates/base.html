@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Josep Rojas - Source Code Reviewer y Desarrollador Full-Stack">
+    <title>{% block title %}Josep Rojas - Portfolio{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JR</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">JR</a>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Inicio</a></li>
+                <li><a href="/proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="/blog" class="nav-link">Blog</a></li>
+                <li><a href="/admin" class="nav-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Josep Rojas</h4>
+                <p>Source Code Reviewer · Desarrollador Full-Stack</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">jr.rojas9619@gmail.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/proyectos">Proyectos</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Tecnologías</h4>
+                <ul>
+                    <li>Python, Java, C#, Ruby</li>
+                    <li>JavaScript, TypeScript</li>
+                    <li>MySQL, SQLite</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Redes</h4>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/josep-rojas-garos-7a8040220" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com/tuusuario" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Josep Rojas</p>
+            <p>Source Code Reviewer · BMM Testlabs</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

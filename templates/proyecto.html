@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ proyecto.titulo }}{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">{{ proyecto.titulo }}</h1>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px;">
+                {% for tech in proyecto.tecnologias.split(', ') %}
+                <span class="tech-tag">{{ tech }}</span>
+                {% endfor %}
+            </div>
+            <img src="{{ proyecto.imagen_url }}" alt="{{ proyecto.titulo }}" style="width: 100%; border-radius: 16px; margin-bottom: 30px;">
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">{{ proyecto.descripcion }}</p>
+            <div style="display: flex; gap: 15px;">
+                <a href="{{ proyecto.github_url }}" target="_blank" class="btn btn-primary">Ver en GitHub</a>
+                <a href="/proyectos" class="btn btn-secondary" style="background: var(--bg-alt); color: var(--text); border: 1px solid var(--border);">← Volver</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

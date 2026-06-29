@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Panel de administración</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--border);">
+                <h3 style="margin-bottom: 20px;">Agregar post</h3>
+                <form method="POST">
+                    <input type="hidden" name="tipo" value="post">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Título</label>
+                        <input type="text" name="titulo" required style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Contenido</label>
+                        <textarea name="contenido" rows="5" required style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;"></textarea>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Tags</label>
+                        <input type="text" name="tags" placeholder="flask, python, web" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Publicar</button>
+                </form>
+            </div>
+            <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--border);">
+                <h3 style="margin-bottom: 20px;">Agregar proyecto</h3>
+                <form method="POST">
+                    <input type="hidden" name="tipo" value="proyecto">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Título</label>
+                        <input type="text" name="titulo" required style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Descripción</label>
+                        <textarea name="descripcion" rows="3" required style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;"></textarea>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Tecnologías</label>
+                        <input type="text" name="tecnologias" placeholder="Python, Flask, SQLite" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">URL de GitHub</label>
+                        <input type="url" name="github_url" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">URL de imagen</label>
+                        <input type="url" name="imagen_url" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>
+                            <input type="checkbox" name="destacado"> Destacar proyecto
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar proyecto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
